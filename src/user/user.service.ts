@@ -8,9 +8,12 @@ export class UserService {
     return this.users;
   }
   createUser(user: IUser) {
-    if (user as IUser) {
+    if (
+      typeof user.id === 'number' &&
+      typeof user.name === 'string' &&
+      typeof user.surname === 'string'
+    )
       this.users.push(user);
-    }
 
     return this.users;
   }
